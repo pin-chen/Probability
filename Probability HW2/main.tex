@@ -1,0 +1,460 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX
+\documentclass{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{CJKutf8}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+
+\pagestyle{fancy}
+
+
+\newenvironment{problem}[2][Problem]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+\newenvironment{question}[2][Question]
+    { \begin{mdframed}[backgroundcolor=gray!5] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}{\textbf{Solution}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Date: 2021/10/26}
+\chead{\textbf{HW2}}
+\rhead{1179 Probability} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+Name: 陳品劭 \qquad ID: 109550206 \qquad
+\href{https://www.overleaf.com/read/fmqrvpdhwqpg}{Self link}
+
+    \begin{problem}{1 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    We know $p_X(k)=\frac{e^{-\lambda T}(\lambda T)^{k}}{k!}$ and $p_X(k) \ge 0$, for any $k$.
+    
+    Give an integer a.
+    
+    $p_X(a)=\frac{e^{-\lambda T}(\lambda T)^{a}}{a!}$
+    
+    $p_X(a-1)=\frac{e^{-\lambda T}(\lambda T)^{a-1}}{(a-1)!}$
+    
+    $\rightarrow{}
+    p_X(a)=p_X(a-1) \cdot \frac{\lambda T}{a}$
+    \newline
+    
+    When $k=a$, and $0 \le a \le k^{*} \le \lambda T$.
+    
+    Since $0 \le a \le k^* \le \lambda T$, $\frac{\lambda T}{a} \ge 1$. 
+    
+    
+    However $p_X(a) \ge p_X(a-1)$, when $0 \le a \le k^{*} \le \lambda T$.
+    
+    Proven the PMF of $X$ is monotonically non-decreasing with k in the range from 0 to $k^*$. $\dots(1)$
+    \newline
+    
+    When $k=a$, and $0  \le k^{*} \le \lambda T < a$.
+    
+    Since $0  \le k^{*} \le \lambda T < a$, $\frac{\lambda T}{a} < 1$. 
+    
+    However $p_X(a-1) > p_X(a)$, when $0  \le k^{*} \le \lambda T < a$.
+    
+    Proven the PMF of $X$ is monotonically decreasing with k for $k\ge k^*$. $\dots(2)$
+    \newline
+    
+    By (1) and (2), we can have $p_X(k^*)$ is the largest number of the PMF of $X$.
+    
+    Proven that $k^*= \arg\max_{k\in \mathbb{N}\cup \{0\}}p_X(k)$.
+    
+    \end{solution}
+    
+    \begin{problem}{1 (b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    The PMF of $X_i$ is $P(X_i=k)=(1-p)^{k-1}p$, $k = 1, 2, 3,\dots$.
+    
+    $P(X_i > k)=(1-p)^k$
+    
+    $X>k$ means all $X_i>k$ and $X_1, ..., X_n$ are independent, so $P(X > k)=\prod\limits_{i=1}^{n}{P(X_i>k)}=(1-p)^{kn}$.
+    
+    $P(X \le k)=1-(1-p)^{kn}$
+    
+    $P(X=k)=P(X\le k)-P(X\le k-1)=(1-(1-p)^{kn})-(1-(1-p)^{(k-1)n})=(1-p)^{n(k-1)}(1-(1-p)^n)$
+    
+    Define $P^*=(1-p)^n$.
+    
+    Then $P(X=k)=(1-p)^{n(k-1)}(1-(1-p)^n)=(P^*)^{k-1}(1-P^*)$
+    
+    Define $P = (1-P^*)$.
+    
+    Then $P(X=k)=(P^*)^{k-1}(1-P^*)=P(1-P)^{k-1}$.
+    
+    The PMF of $X$ is $P(X=k)=P(1-P)^{k-1}$, where $P=1-(1-p)^n$, $k=1, 2, 3,\dots$.
+    \newline
+    
+    So, it follow that the minimum of n independent Geometric random variables has geometric distribution.
+    
+    Then the PMF of $X$ is also a Geometric random variables.
+    
+    \end{solution}
+    
+    \begin{problem}{2 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    There are $r$ indistinguishable balls which are need to distributing to $n$ different cells.
+    
+    Define the number of balls in the $ith$ cells is $X_i$.
+    
+    Then we have $\sum\limits_{i=1}^{n}{X_i}=r$, and the number of arrangements is $C_r^{n+r-1}$.
+    
+    When the number of balls in the 1st cell is $k$, means $k+X_2+...X_n=r$.
+    
+    Then we have $X_2+...X_n=r-k=\sum\limits_{i=2}^{n}{X_i}=r-k$, and the number of arrangements is $C_{r-k}^{n+r-k-2}$.
+    
+    However the probability of the event that $X=k$ is $\frac{C_{r-k}^{n+r-k-2}}{C_r^{n+r-1}}$.
+    
+    Proven $q_k=\frac{C_{r-k}^{n+r-k-2}}{C_r^{n+r-1}}$, for any $k\in \mathbb{N}\cup \{0\}$
+    
+    \end{solution}
+    
+    \begin{problem}{2 (b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    $q_k=\frac{C_{r-k}^{n+r-k-2}}{C_r^{n+r-1}}=\frac{(n+r-k-2)!}{(r-k)!(n-2)!} \cdot \frac{r!(n-1)!}{(n+r-1)!}=(n-1)
+    \frac{r\times (r-1)\times\dots \times(r-k+1)}{(n+r-1)\times \dots \times(n+r-k-1)}$
+    
+    $\because\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}{\frac{n+r-i-1}{r-i}}=\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}{(\frac{n}{r-i}+\frac{r-i}{r-i}-\frac{1}{r-i})}=\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}\frac{n}{r-i}+\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}\frac{r-i}{r-i}-\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}\frac{1}{r-i}$
+    
+    $\hspace*{94}
+    =\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}{\frac{n}{r-i}+ 1-0}=\frac{1}{\lambda}+1$, where $i=0, 1, \dots, k-1$.
+    
+    $\therefore\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}{q_k}=\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}{(\frac{(n-1)}{(n+r-k-1)})}\cdot (\frac{1}{1/\lambda+1})^k$
+    
+    $\because\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}{\frac{n+r-k-1}{n-1}}=\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}{(\frac{n-1}{n-1}+\frac{r}{n-1}-\frac{k}{n-1})}=\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}\frac{n-1}{n-1}+\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}\frac{r}{n-1}-\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}\frac{k}{n-1}$
+    
+    $\hspace*{94}
+    =\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}{1+\frac{r}{n-1}- 0}=\lambda+1$.
+    
+    $\therefore\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}{q_k}=\lim\limits_{n\rightarrow{\infty}, r\rightarrow{\infty}}{(\frac{(n-1)}{(n+r-k-1)})}\cdot (\frac{1}{1/\lambda+1})^k=\frac{1}{1+\lambda}(\frac{\lambda}{\lambda+1})^k=\frac{\lambda^k}{(1+\lambda)^{k+1}}$
+    
+    Proven that if the average number of particles per cell $r/n$ tends to $\lambda$ as $n\rightarrow{\infty}$ and $r\rightarrow{\infty}$, then $q_k\rightarrow{\frac{\lambda^k}{(1+\lambda)^{k+1}}}$ as $n\rightarrow{\infty}$ and $r\rightarrow{\infty}$.
+    \newline
+    
+    Define $P=\frac{1}{1+\lambda}$, then $q_k\rightarrow{\frac{\lambda^k}{(1+\lambda)^{k+1}}}=\frac{1}{1+\lambda}(\frac{\lambda}{\lambda+1})^k=P(1-P)^k$, $k=0, 1, 2,\dots$.
+    
+    Then the kind of random variable of $X$ is Geometric random variable in the limit. 
+    
+    \end{solution}
+    
+    \begin{problem}{3 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    Define $V=$ total transmitted bits in the given interval.
+    
+    By the total probability theorem, $P(X=k)=\sum\limits_{n=0}^{\infty}{P(X=k|V=k+n)\cdot P(V=k+n)}$.
+    
+    $P(X=k|V=k+n)=C_k^{n+k}{p^k(1-p)^{n}}$.
+    
+    $P(V=k+n)=\frac{e^{-\lambda T}(\lambda T)^{k+n}}{(k+n)!}$.
+    
+    $P(X=k)=\sum\limits_{n=0}^{\infty}{C_k^{n+k}{p^k(1-p)^{n}} \cdot \frac{e^{-\lambda T}(\lambda T)^{k+n}}{(k+n)!}}$
+    
+    $\hspace*{48}
+    =\sum\limits_{n=0}^{\infty}{\frac{(n+k)!}{n!k!}{p^k(1-p)^{n}} \cdot \frac{e^{-\lambda T}(\lambda T)^{k+n}}{(k+n)!}}$
+    
+    $\hspace*{48}
+    =\sum\limits_{n=0}^{\infty}{\frac{e^{-\lambda T}(\lambda T)^{k+n}{p^k(1-p)^{n}}}{n!k!}}$
+    
+    $\hspace*{48}
+    =\sum\limits_{n=0}^{\infty}{\frac{e^{-(1-p)\lambda T}(\lambda T)^{n}{(1-p)^{n}}}{n!} \cdot \frac{e^{-p\lambda T}(\lambda T)^{k}{p^k}}{k!}}$
+    
+    $\hspace*{48}
+    =\frac{e^{-p\lambda T}(\lambda T)^{k}{p^k}}{k!} \cdot \sum\limits_{n=0}^{\infty}{\frac{e^{-(1-p)\lambda T}(\lambda T)^{n}{(1-p)^{n}}}{n!}}$
+    
+    $\hspace*{48}
+    =\frac{e^{-p\lambda T}(p\lambda T)^{k}}{k!} \cdot \sum\limits_{n=0}^{\infty}{\frac{e^{-(1-p)\lambda T}((1-p)\lambda T)^{n}}{n!}}$
+    
+    $\hspace*{48} 
+    =\frac{e^{-p\lambda T}(p\lambda T)^{k}}{k!} \cdot 1$ (by Taylor's expansion)
+    
+    $\hspace*{48} 
+    =\frac{e^{-p\lambda T}(p\lambda T)^{k}}{k!}$
+    \newline
+    
+    Then we have that $P(X=k)$ is Poisson PMF with average rate $p\lambda$.
+    
+    Proven that $X$ has a Poisson PMF with average rate $p\lambda$.
+    
+    \end{solution}
+    
+    \begin{problem}{3 (b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    Define a random variable $Z$ to be the number of 0's transmitted in that interval.
+    
+    And $P(Z=n)=\frac{e^{-(1-p)\lambda T}((1-p)\lambda T)^{n}}{n!}$
+    
+    Then $P(Y=m)=\sum\limits_{j=0}^{m}{\sum\limits_{k=j}^{\infty}{\sum\limits_{n=m-j}^{\infty}{C_{j}^{k}{a_1^k(1-a_1)^{k-j}} P(X=k) \cdot C_{m-j}^{m}{a_0^{m-j}(1-a_0)^{n-m+j}} P(Z=n)}}}$
+    
+    $=\sum\limits_{j=0}^{m}{
+    \sum\limits_{k=j}^{\infty}{
+    \sum\limits_{n=m-j}^{\infty}{
+    C_{j}^{k}{a_1^k(1-a_1)^{k-j} }
+    \frac{e^{-p\lambda T}(p\lambda T)^{k}}{k!} \cdot
+    C_{m-j}^{m}{a_0^{m-j}(1-a_0)^{n-m+j} \frac{e^{-(1-p)\lambda T}((1-p)\lambda T)^{n}}{n!}}
+    }}}$
+    
+    $=\sum\limits_{j=0}^{m}{
+    \sum\limits_{k=j}^{\infty}{
+    \sum\limits_{n=m-j}^{\infty}{
+    \frac{e^{-a_1p\lambda T}(a_1 p\lambda T)^{j}}{j!} \cdot
+    \frac{e^{-(1-a_1)p\lambda T}((1-a_1)p\lambda T)^{k-j}}{(k-j)!} \cdot
+    \frac{e^{-(1-a_0)(1-p)\lambda T}((1-a_0)(1-p)\lambda T)^{m-j}}{(m-j)!} \cdot 
+    \frac{e^{-a_0(1-p)\lambda T}(a_0(1-p)\lambda T)^{n-m-j}}{(n-m-j)!}
+    }}}$
+    
+    $=\sum\limits_{j=0}^{m}{
+    \frac{e^{-a_1p\lambda T}(a_1 p\lambda T)^{j}}{j!} \cdot
+    \frac{e^{-(1-a_0)(1-p)\lambda T}((1-a_0)(1-p)\lambda T)^{m-j}}{(m-j)!} \cdot 
+    \sum\limits_{k=j}^{\infty}{
+    \frac{e^{-(1-a_1)p\lambda T}((1-a_1)p\lambda T)^{k-j}}{(k-j)!} \cdot
+    \sum\limits_{n=m-j}^{\infty}{
+    \frac{e^{-a_0(1-p)\lambda T}(a_0(1-p)\lambda T)^{n-m-j}}{(n-m-j)!}
+    }}}$
+    
+    $=\sum\limits_{j=0}^{m}{
+    \frac{e^{-a_1p\lambda T}(a_1 p\lambda T)^{j}}{j!} \cdot
+    \frac{e^{-(1-a_0)(1-p)\lambda T}((1-a_0)(1-p)\lambda T)^{m-j}}{(m-j)!} \cdot 1 \cdot 1}$ (by Taylor's expansion)
+    
+    $=\sum\limits_{j=0}^{m}{
+    \frac{e^{-a_1p\lambda T}(a_1 p\lambda T)^{j}}{j!} \cdot
+    \frac{e^{-(1-a_0)(1-p)\lambda T}((1-a_0)(1-p)\lambda T)^{m-j}}{(m-j)!} \cdot \frac{m!}{m!}}$
+    
+    $=\frac{e^{-(a_1p+(1-a_0)(1-p))\lambda T}}{m!}
+    \sum\limits_{j=0}^{m}{C_j^m \cdot 
+    (a_1 p\lambda T)^{j} \cdot
+    ((1-a_0)(1-p)\lambda T)^{m-j}}$
+    
+    $=\frac{e^{-(a_1p+(1-a_0)(1-p))\lambda T}}{m!}
+    ((a_1p+(1-a_0)(1-p))\lambda T)^m$
+    
+    Define $\lambda^*=(a_1p+(1-a_0)(1-p))\lambda$
+    
+    Then $P(Y=m)=\frac{e^{-\lambda^* T}(\lambda^*T)^m}{m!}$.
+    
+    The PMF of $Y$ is $P(Y=m)=\frac{e^{-\lambda^* T}(\lambda^*T)^m}{m!}$, where $\lambda^*=(a_1p+(1-a_0)(1-p))\lambda$, $m=0, 1, 2,\dots$
+    
+    \end{solution}
+    
+    \begin{problem}{4 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    $P(X=k)=p(1-p){k-1}$
+    
+    $E[X]=\sum\limits_{k=1}^{\infty}{p(1-p)^{k-1}k}=\sum\limits_{k=0}^{\infty}{p(1-p)^{k}(k+1)}=p+\sum\limits_{k=1}^{\infty}{p(1-p)^{k}(k+1)}$
+    
+    $(1-p)E[X]=\sum\limits_{k=1}^{\infty}{k(1-p)^kp}$
+    
+    $E[X]-(1-p)E[X]=p+\sum\limits_{k=1}^{\infty}{p(1-p)^{k}(k+1)} - \sum\limits_{k=1}^{\infty}{k(1-p)^kp}=p+\sum\limits_{i=1}^{\infty}{(1-p)^kp}=p+(1-p)\sum\limits_{i=1}^{\infty}{(1-p)^{k-1}p}=p+(1-p)\cdot 1=1$
+    
+    $E[X]-(1-p)E[X]=E[X]-E[X]-pE[X]=1$
+    
+    $E[X]=\frac{1}{p}$
+    
+    $E[X^2]=\sum\limits_{k=1}^{\infty}{p(1-p)^{k-1}k^2}=\sum\limits_{k=0}^{\infty}{p(1-p)^{k}(k+1)^2}=p+\sum\limits_{k=1}^{\infty}{p(1-p)^{k}(k+1)^2}$
+    
+    $(1-p)E[X^2]=\sum\limits_{k=1}^{\infty}{p(1-p)^{k}k^2}$
+    
+    $E[X^2]-(1-p)E[X^2]=p+\sum\limits_{k=1}^{\infty}{p(1-p)^{k}(k+1)^2}-\sum\limits_{k=1}^{\infty}{p(1-p)^{k}k^2}=p+\sum\limits_{k=1}^{\infty}{p(1-p)^{k}(2k+1)}$
+    
+    $\hspace*{48}
+    =p+2(1-p)E[X]+(1-p)\cdot 1=\frac{2-2p}{p}+1=\frac{2-p}{p}$
+    
+    $Var[X]=E[X^2]-E[X]^2=\frac{2-p}{p}-(\frac{1}{p})^2=\frac{1-p}{p^2}$
+    \newline
+    
+    Proven $E[X]=\frac{1}{p}$ and $Var[X]=\frac{1-p}{p^2}$.
+    
+    \end{solution}
+    
+    \begin{problem}{4 (b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    Suppose $E[X^m]=E[Y^m]$, for all $m\in\{1, 2, \dots, n-1\}$.
+    
+    $E[X^m]=\sum\limits_{i=1}^{n}{a_i^mP(X=a_i)}$, for all $m\in\{1, 2, \dots, n-1\}$.
+    
+    $E[Y^m]=\sum\limits_{i=1}^{n}{a_i^mP(Y=a_i)}$, for all $m\in\{1, 2, \dots, n-1\}$.
+    
+    Since the set is finite and $a_i$ are real number ($i=1, 2,\dots, n$), we can arbitrary change the order of the set.
+    
+    \[
+    A=\begin{bmatrix}
+    E[X^m] \\
+    \vdots \\
+    E[X]   \\
+    1
+    \end{bmatrix}=
+    \begin{bmatrix}
+    a_1^m  & \dots & a_n^m \\
+    \vdots &  & \vdots \\
+    a_1^0  & \dots  & a_n^0
+    \end{bmatrix}
+    \begin{bmatrix}
+    P(X=a_1) \\
+    \vdots \\
+    P(X=a_n)
+    \end{bmatrix}=
+    \begin{bmatrix}
+    a_1^m  & \dots & a_n^m \\
+    \vdots &  & \vdots \\
+    a_1^0  & \dots  & a_n^0
+    \end{bmatrix}
+    \begin{bmatrix}
+    P(Y=a_1) \\
+    \vdots \\
+    P(Y=a_n)
+    \end{bmatrix}=
+    \begin{bmatrix}
+    E[Y^m] \\
+    \vdots \\
+    E[Y]   \\
+    1
+    \end{bmatrix}
+    \]
+    
+    
+    Define M=$\begin{bmatrix}
+    a_1^m  & \dots & a_n^m \\
+    \vdots &  & \vdots \\
+    a_1^0  & \dots  & a_n^0
+    \end{bmatrix}$.
+    
+    Since $a_1, \dots, a_n$ are n distinct real number, $\det(M) \ne 0$.
+    
+    Then we have $M^{-1}$.
+    \newline
+    
+    $M^{-1}M{\begin{bmatrix}
+    P(X=a_1) \\
+    \vdots \\
+    P(X=a_n)
+    \end{bmatrix}=M^{-1}M\begin{bmatrix}
+    P(Y=a_1) \\
+    \vdots \\
+    P(Y=a_n)
+    \end{bmatrix}}\rightarrow{}{\begin{bmatrix}
+    P(X=a_1) \\
+    \vdots \\
+    P(X=a_n)
+    \end{bmatrix}=\begin{bmatrix}
+    P(Y=a_1) \\
+    \vdots \\
+    P(Y=a_n)
+    \end{bmatrix}}$
+    \newline
+    
+    Proven $X$ and $Y$ are identically distributed, for all $t\in \{A_1, \dots, a_n\}$, if $E[X^m]=E[Y^m]$, for all $m\in\{1, 2, \dots, n-1\}$.
+    \end{solution}
+    
+    \begin{problem}{4 (c)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    $E[|Z|]=\sum\limits_{n=1}^{\infty}{|z_n|P(Z=z_n)}=\sum\limits_{n=1}^{\infty}{\sqrt{n}\frac{6}{(\pi n)^2}}=\frac{6}{\pi^2}\sum\limits_{n=1}^{\infty}{\frac{1}{n^{3/2}}}<\infty$
+    
+    Since $E[|Z|]<\infty$, $E[Z] $ exists.
+    
+    $E[|Z^2|]=\sum\limits_{n=1}^{\infty}{|z_n^2|P(Z=z_n)}=\sum\limits_{n=1}^{\infty}{z_n^2P(Z=z_n)}=E[Z^2]=\frac{6}{\pi^2}\sum\limits_{n=1}^{\infty}{\frac{1}{n^{1/2}}}=\infty$
+    
+    $Var[Z]=E[Z^2]-E[Z]^2=\infty-E[Z]^2=\infty$
+    
+    $\sum\limits_{n=1}^{\infty}{z_n^3\cdot p_Z(z_n)}=\sum\limits_{n=1}^{\infty}{(-1)^n\frac{6}{(\pi )^2\sqrt{n}}}=\frac{6}{\pi^2}\sum\limits_{n=1}^{\infty}{\frac{(-1)^n}{\sqrt{n}}}$
+    
+    Since $\lim\limits_{n\rightarrow{\infty}}{\frac{(-1)^n}{\sqrt{n}}}=0$, and $\frac{d}{dx}(\frac{(-1)^n}{\sqrt{n}})<0$, $ \sum\limits_{n=1}^{\infty}{z_n^3\cdot p_Z(z_n)}$ converges.
+    
+    Since $E[|Z|^3]=\sum\limits_{n=1}^{\infty}{\frac{6}{(\pi )^2\sqrt{n}}}=\frac{6}{(\pi )^2}\sum\limits_{n=1}^{\infty}{\frac{1}{\sqrt{n}}}=\frac{6}{(\pi )^2}\times\infty=\infty$ and $E[Z^3]$ converges, $E[Z^3]$ DNE.
+    
+    $E[|Z^{10}|]=\sum\limits_{n=1}^{\infty}{|z_n^{10}|p_Z(z_n)}=\sum\limits_{n=1}^{\infty}{z_n^{10}p_Z(z_n)}=E[Z^{10}]=\sum\limits_{n=1}^{\infty}{n^5\frac{6}{(\pi )^2\sqrt{n}}}=\infty$.
+    
+    Since $E[|Z^{10}|]=E[Z^{10}]=\infty$, $E[Z^{10}]$ exists.
+    
+    Ans: $Var[Z]=\infty$,  $\sum\limits_{n=1}^{\infty}{z_n^3\cdot p_Z(z_n)}$ converges, $E[Z^3]$ DNE, $\sum\limits_{n=1}^{\infty}{z_n^{10}p_Z(z_n)}$ exists.
+    
+    \end{solution}
+    
+    \begin{problem}{5 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    \href{https://www.overleaf.com/read/kyjmbmnjwxzb}{5(a)'s solution.}
+    \end{solution}
+    
+    \begin{problem}{5 (b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    The PDF of standard normal variables is $P(X=x)=\frac{1}{2\pi}\exp(\frac{-x^2}{2})$, $\forall x \in \mathbb{R}$.
+    \newline
+    
+    $E[X]=\int_{-\infty}^{\infty}{x\frac{1}{\sqrt{2\pi}}e^{\frac{-x^2}{2}}dx}=\frac{1}{\sqrt{2\pi}}[e^{-x^2/2}]^{\infty}_{-\infty}=\frac{-1}{\sqrt{2\pi}}(\lim\limits_{t\rightarrow{\infty}}[e^{-x^2/2}]_{-t}^{0}+\lim\limits_{t\rightarrow{\infty}}[e^{-x^2/2}]_{0}^{t})=\frac{-1}{\sqrt{2\pi}} \times 0=0$
+    \newline
+    
+    $Var[X]=\int_{-\infty}^{\infty}{(x-E[X])^2\frac{1}{\sqrt{2\pi}}e^{-x^2/2}dx}=Var[X]=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}{(x)^2e^{-x^2/2}dx}$
+    
+    $\hspace*{36}
+    =\frac{1}{\sqrt{2\pi}}([-xe^{-x^2/2}]^{\infty}_{-\infty}+\int_{-\infty}^{\infty}e^{-x^2/2}dx)=\frac{1}{\sqrt{2\pi}}(0+\int_{-\infty}^{\infty}e^{-x^2/2}dx)=\frac{1}{\sqrt{2\pi}}\times \sqrt{2\pi}=1$
+    \newline
+    
+    Verified that a standard normal random variable $X$ satisfies that $Var[X] = 1$.
+    \end{solution}
+    
+\end{CJK*}
+\end{document}

@@ -1,0 +1,101 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX
+\documentclass{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{CJKutf8}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+
+\pagestyle{fancy}
+
+
+\newenvironment{problem}[2][Problem]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+\newenvironment{question}[2][Question]
+    { \begin{mdframed}[backgroundcolor=gray!5] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}{\textbf{Solution}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Date: 2021/10/30}
+\chead{\textbf{HW2}}
+\rhead{1179 Probability} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+Name: 陳品劭 \qquad ID: 109550206 \qquad
+\href{https://www.overleaf.com/read/kyjmbmnjwxzb}{Self link} \qquad
+\href{https://www.overleaf.com/read/fmqrvpdhwqpg}{Others link}
+    \begin{problem}{5 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    $\lambda > 0$
+    
+    We know the CDF of $X$ is $F_X(t)=\{1-e^{-\lambda t}$, if $t\ge0$; $0$, otherwise.
+    
+    Then $Y=aX+b$.
+    
+    The CDF of $Y$ is $F_Y(t)=P(Y\le t)=P(aX+b\le t)=P(X\le \frac{t-b}{a})=F_X(\frac{t-b}{a})=\{1-e^{-\lambda \frac{t-b}{a}}$, if $\frac{t-b}{a}\ge0$; $0$ otherwise.
+    \newline
+    
+    $\frac{d}{dt}(1-e^{-\lambda \frac{t-b}{a}})=\frac{\lambda}{a}e^{-\lambda \frac{t-b}{a}}$.
+    
+    The PDF of $Y$ is  $f_Y(t)=\{\frac{\lambda}{a}e^{-\lambda \frac{t-b}{a}}$, if $\frac{t-b}{a}\ge0$; $0$ otherwise.
+    \newline
+    
+    Define $\lambda^*=\frac{\lambda}{a}$.
+    
+    $\lambda^*$ should greater than 0 and $t$ have interval $[0,\infty)$.
+    
+    Hence $a>0$ and $b=0$.
+    
+    When $a>0$ and $b=0$, $Y$ also is an exponential random variable:
+    
+    
+    \end{solution}
+    
+    \begin{problem}{5 (b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    The PDF of standard normal variables is $P(X=x)=\frac{1}{2\pi}\exp(\frac{-x^2}{2})$, $\forall x \in \mathbb{R}$.
+    \newline
+    
+    $E[X]=\int_{-\infty}^{\infty}{x\frac{1}{\sqrt{2\pi}}e^{\frac{-x^2}{2}}dx}=\frac{1}{\sqrt{2\pi}}[e^{-x^2/2}]^{\infty}_{-\infty}=\frac{-1}{\sqrt{2\pi}}(\lim\limits_{t\rightarrow{\infty}}[e^{-x^2/2}]_{-t}^{0}+\lim\limits_{t\rightarrow{\infty}}[e^{-x^2/2}]_{0}^{t})=\frac{-1}{\sqrt{2\pi}} \times 0=0$
+    \newline
+    
+    $Var[X]=\int_{-\infty}^{\infty}{(x-E[X])^2\frac{1}{\sqrt{2\pi}}e^{-x^2/2}dx}=Var[X]=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}{(x)^2e^{-x^2/2}dx}$
+    
+    $\hspace*{36}
+    =\frac{1}{\sqrt{2\pi}}([-xe^{-x^2/2}]^{\infty}_{-\infty}+\int_{-\infty}^{\infty}e^{-x^2/2}dx)=\frac{1}{\sqrt{2\pi}}(0+\int_{-\infty}^{\infty}e^{-x^2/2}dx)=\frac{1}{\sqrt{2\pi}}\times \sqrt{2\pi}=1$
+    \newline
+    
+    Verified that a standard normal random variable $X$ satisfies that $Var[X] = 1$.
+    \end{solution}
+    
+\end{CJK*}
+\end{document}

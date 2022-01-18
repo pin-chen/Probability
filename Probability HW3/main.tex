@@ -1,0 +1,295 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX
+\documentclass{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{CJKutf8}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+
+\pagestyle{fancy}
+
+
+\newenvironment{problem}[2][Problem]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+\newenvironment{question}[2][Question]
+    { \begin{mdframed}[backgroundcolor=gray!5] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}{\textbf{Solution}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Date: 2021/12/16}
+\chead{\textbf{HW3}}
+\rhead{1179 Probability} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+Name: 陳品劭 \qquad ID: 109550206 \qquad
+\href{https://www.overleaf.com/read/kvchvctjsncs}{Self link} 
+    \begin{problem}{1 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    $E[XY]=\int_{-\infty}^{\infty}{\int_{-\infty}^{\infty}{xyf(x,y)}}dxdy=\int_{0}^{1}{\int_{-y}^{y}{xy}} dxdy = 0$
+    \newline
+    
+    $\int_{-\infty}^{\infty}{f(x,y)}dy=\int_{|x|}^{1}{1}dy=1-|x|$
+    
+    The marginal PDF of $X$ is $f_X(x) = \{1-|x|$, if $-1<x<1$; 0 else.
+    \newline
+    
+    $\int_{-\infty}^{\infty}{f(x,y)}dx=\int_{-y}^{y}{1}dy=2y$
+    
+    The marginal PDF of $Y$ is $f_Y(y) = \{2y$, if $0<y<1$; 0 else.
+    \newline
+    
+    $E[X]=\int_{-\infty}^{\infty}{xf_X(x)}dx=\int_{-1}^{1} {x(1-|x|)} dx = 0$
+    
+    $E[Y]=\int_{-\infty}^{\infty}{xf_Y(y)}dy=\int_{0}^{1} {y(2y)} dy = 2/3$
+    \newline
+    
+    Then we have $E[XY]=0=E[X]E[Y]=0\times2/3$
+    
+    \end{solution}
+    
+    \begin{problem}{1 (b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    Give $A=\{x|0.1<x<0.2\}$, $B=\{y|0.5<y<0.6\}$.
+    \newline
+    
+    $P(U\in A), V \in B)=\int_{0.1}^{0.2}{\int_{0.5}^{0.6}{f(x,y)}}dxdy=\int_{0.1}^{0.2}{\int_{0.5}^{0.6}{1}}dxdy=0.1\times0.1=0.01$
+    
+    $P(U\in A)=\int_{0.1}^{0.2}{f_X(x)}dx=\int_{0.1}^{0.2}{1-|x|}dx=\int_{0.1}^{0.2}{1-x}dx=0.2-0.02-0.1+0.005=0.085$
+    
+    $P(V\in B)=\int_{0.5}^{0.6}{f_Y(y)}dy=\int_{0.5}^{0.6}{2y}dx=0.36-0.25=0.14$
+    \newline
+    
+    Then $P(U\in A), V \in B)=0.01\ne P(U\in A)P(V\in B)=0.14\times0.085=0.0119$.
+    
+    Proven $X$ and $Y$ are not independent.
+    
+    \end{solution}
+    
+    \begin{problem}{2 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    Define the joint PDF of $X$ and $Y$ is $f_{XY}(x,y)$.
+    
+    We know $\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f_{XY}(x,y)dydx=1$ and $f_{XY}(x,y)$ is uniform over the triangle with vertices at (0, 0), (0, 1), and (1, 0).
+    
+    $\because\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f_{XY}(x,y)dydx=\int_{0}^{1}\int_{0}^{1-x}f_{XY}(x,y)dydx=f_{XY}(x,y)/2=1$
+    
+    $\therefore f_{XY}(x,y) = 2$, when $0<y<1-x$, $0<x<1$
+    
+    Then we have $f_{XY}(x,y) = \{ 2$, if $0<y<1-x$, $0<x<1$; 0, else.
+    \newline
+    
+    Define the marginal PDF of $Y$ is $f_Y(y)$.
+    
+    $f_Y(y)=\int_{-\infty}^{\infty}f_{XY}(x,y)dx=\int_{0}^{1-y}2dx=2-2y$ 
+    \newline
+    
+    Define the conditional PDF of $X$ given $Y = y$ with $y \in (0, 1)$ is $f_{X|Y}(x|y)$.
+    
+    $f_{X|Y}(x|y)=\frac{f_{XY}(x,y)}{f_Y(y)}=\frac{2}{2-2y}=\frac{1}{1-y}$, if $0<x<1$
+    
+    Then the conditional PDF of $X$ given $Y = y$ with $y \in (0, 1)$ is $f_{X|Y}(x|y)=\{\frac{1}{1-y}$, if $0<x<1$; 0, else.
+    
+    \end{solution}
+    
+    \begin{problem}{2 (b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    $E[X|Y=y] (y\in (0,1)) = \int_{-\infty}^{\infty}{xf_{X|Y}(x|y)}dx = \int_{0}^{1-y}{x\frac{1}{1-y}}dx=\frac{1-y}{2}$
+    \newline
+    
+    By Law of Iterated Expectation,
+    
+    $E[X]=E[E[X|Y=y]]=\int_{0}^{1}{f_Y(y)E[X|Y=y]}dy=\int_{0}^{1}(2-2y)\frac{(1-y)}{2}dy=\int_{0}^{1}(1-y)^2dy=1/3$
+    
+    \end{solution}
+    
+    \begin{problem}{3 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    $X\sim U(-1,3)$
+    
+    Then the MGF of $X$ is $M_X(t)=E[e^{tX}]=\frac{e^{tb}-e^{ta}}{t(b-a)}=\frac{e^{3t}-e^{-t}}{4t}$
+    \newline
+    
+    $E[X]=\frac{d}{dt}M_X(t)|_{t=0}=\frac{d}{dt}\frac{e^{3t}-e^{-t}}{4t}|_{t=0}=\lim\limits_{t\rightarrow 0}\frac{3te^{4t}+t+1-e^{4t}}{4t^2e^t}=\lim\limits_{t\rightarrow 0}\frac{12te^{4t}-e^{4t}+1}{8te^t+4t^2e^t}=\lim\limits_{t\rightarrow 0}\frac{48te^{4t}+8e^{4t}}{8e^t+16te^t+4t^2e^t}=\lim\limits_{t\rightarrow 0}\frac{2e^{3t}+12te{3t}}{2+4t+t^2}=\frac{2+0}{2+0+0}=1$
+    
+    $E[X^2]=\frac{d^2}{dt^2}M_X(t)|_{t=0}=\frac{d}{dt}\frac{3te^{4t}+t+1-e^{4t}}{4t^2e^t}|_{t=0}=\lim\limits_{t\rightarrow 0}\frac{9t^2e^{4t}-6te^{4t}-2t-t^2-2+2e^{4t}}{4t^3e^t}=\lim\limits_{t\rightarrow 0}\frac{36t^2e^{4t}-6te^{4t}-2t-2+2e^{4t}}{4t^3e^t+12t^2e^t}=\lim\limits_{t\rightarrow 0}\frac{72t^2e^{4t}+24te^{4t}-1+e^{4t}}{2t^3e^t+12t^2e^t+12te^t}=\lim\limits_{t\rightarrow 0}\frac{288t^2e^{4t}+240te^{4t}+28e^{4t}}{2t^3e^t+18t^2e^t+36te^t+12e^t}=\lim\limits_{t\rightarrow 0}\frac{14e^{3t}+120te^{3t}+144t^2e{3t}}{6+18t+9t^2+t^3}=\frac{14+0+0}{6++0+0+0}=7/3$
+    \newline
+    
+    $Var[X]=E[X^2]-E[X]^2=7/3-1=4/3$
+    
+    \end{solution}
+    
+    \begin{problem}{3 (b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    $M_Y(t)=E[e^{tY}]=\sum\limits_{k=0}^{\infty}{e^{tk}\frac{6}{\pi^2k^2}}=\frac{6}{\pi^2}\sum\limits_{k=0}^{\infty}{\frac{e^{tk}}{k^2}}=\infty$, for $t\in(0,\infty)$ (Since $\lim\limits_{k\rightarrow \infty}\frac{e^{tk}}{k^2}=\infty$)
+    \newline
+    
+    Since $M_Y(t)$ is not finite on $t\in(0,\infty)$, $M_Y(t)$ does not exist, i.e., there exists no interval of the form (−δ, δ) (with δ $> 0$) such that $M_Y(t)$ exists.
+    \newline
+    
+    Proven that the MGF of $Y$ does not exist, i.e., there exists no interval of the form (−δ, δ) (with δ $> 0$) such that $M_Y(t)$ exists.
+    
+    \end{solution}
+    
+    \begin{problem}{4 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    By the MGF table,
+    
+    $X\sim B(n,p) \rightarrow M_X(t)=(1-p+pe^t)^n$
+    \newline
+    
+    $M_X(t)=(1/3e^t+2/3)^5$
+    
+    
+    $\rightarrow n=5, p=1/3$
+    
+    $P(X=k)=\{C_k^5(1/3)^k(2/3)^{5-k}$, if $k=0,1,2,3,4,5$; 0, else.
+    \newline
+    
+    $X$ is a Binomial Random Variables.
+    
+    \end{solution}
+    
+    \begin{problem}{4 (b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    By the MGF table,
+    
+    $X\sim Pois(\lambda) \rightarrow M_X(t)=e^{\lambda(e^t-1)}$
+    \newline
+    
+    $M_X(t)=e^{5(e^t-1)}$
+    
+    
+    $\rightarrow \lambda=5$
+    
+    $P(X=n)=\{\frac{e^{-5}(5)^n}{n!}$, if $n=0,1,2\dots$; 0, else.
+    \newline
+    
+    $X$ is a Poisson Random Variables.
+    
+    \end{solution}
+    
+    \begin{problem}{5}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    Define A=$\begin{bmatrix}
+    \sigma_1  & 0 \\
+    \sigma_2 & \sigma_2\sqrt{1-p^2} 
+    \end{bmatrix}$.
+    
+    $\begin{bmatrix}
+    X_1  \\
+    X_2
+    \end{bmatrix}$=A
+    $\begin{bmatrix}
+    Z \\
+     W 
+    \end{bmatrix}$.
+    
+    $det(A)=\sigma_1\sigma_2\sqrt{1-p^2}\ne0$
+    \newline
+    
+    
+    By the theorem of linear transformation of two random variables,
+    
+    $f_{X_1,X_2}(x_1,x_2)=\frac{1}{|det(A)|}f_{Z,W}(A^{-1}[x_1,x_2]^T)$
+    \newline
+    
+    Sine $Z$ and $W$ are two independent standard normal random variables,
+    
+    $f_{Z,W}(A^{-1}[x_1,x_2]^T)=f_{Z,W}(z,w)=f_Z(z)f_W(w)=\frac{1}{\sqrt{2\pi}}e^{-z^2/2}\frac{1}{\sqrt{2\pi}}e^{-w^2/2}$
+    
+    $f_{X_1,X_2}(x_1,x_2)=\frac{1}{\sigma_1\sigma_2\sqrt{1-p^2}}\frac{1}{\sqrt{2\pi}}e^{-z^2/2}\frac{1}{\sqrt{2\pi}}e^{-w^2/2}$
+    
+    $Z=\frac{X_1-u_1}{\sigma_1}, W = \frac{\frac{X_2-u_2}{\sigma_2}-\rho\frac{X_1-u_1}{\sigma_1}}{\sqrt{1-p^2}}$
+    
+    $f_{X_1,X_2}(x_1,x_2)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-p^2}}e^{-1/2(z^2+w^2)}=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-p^2}}e^{-\frac{(\frac{(x_1-u_1)^2}{\sigma_1^2}-2\rho\frac{(x_1-u_1)(x_2-u_2)}{\sigma_1\sigma_2}+\frac{(x_2-u_2)^2}{\sigma_2^2})}{2(1-\rho^2)}}$
+    \newline
+    
+    Proven that the joint PDF of $X1$, $X2$ is bivariate normal, i.e., for all $x1, x2 \in\mathbb{R}$
+    
+    \end{solution}
+    
+    \begin{problem}{6}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    Let $a=\frac{|X|}{E[|X|^p]^{1/p}}$, $b=\frac{|Y|}{E[|Y|^q]^{1/q}}$
+    
+    By Young's inequality,
+    
+    $\frac{|X|}{E[|X|^p]^{1/p}}\frac{|Y|}{E[|Y|^q]^{1/q}}\le1/p\frac{|X|^p}{E[|X|^p]}+1/q\frac{|Y|^q}{E[|Y|^q]}$
+    \newline
+    
+    Take expected value,
+    
+    $\frac{E[|XY|]}{E[|X|^p]^{1/p}E[|Y|^q]^{1/q}}\le1/p\frac{E[|X|^p]}{E[|X|^p]}+1/q\frac{E[|Y|^q]}{E[|Y|^q]}=1/p+1/q=1$
+    
+    $\rightarrow\frac{E[|XY|]}{E[|X|^p]^{1/p}E[|Y|^q]^{1/q}}\le1$
+    
+    $\rightarrow E[|XY|]\le{E[|X|^p]^{1/p}E[|Y|^q]^{1/q}}$
+    \newline
+    
+    Proven $E[|XY|]\le{E[|X|^p]^{1/p}E[|Y|^q]^{1/q}}$.
+    
+    \end{solution}
+    
+\end{CJK*}
+\end{document}

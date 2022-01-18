@@ -1,0 +1,364 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX
+\documentclass{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{CJKutf8}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+
+\pagestyle{fancy}
+
+
+\newenvironment{problem}[2][Problem]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+\newenvironment{question}[2][Question]
+    { \begin{mdframed}[backgroundcolor=gray!5] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}{\textbf{Solution}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Date: 2021/09/26}
+\chead{\textbf{HW1}}
+\rhead{1179 Probability} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+Name: 陳品劭 \qquad ID: 109550206 \qquad
+\href{https://www.overleaf.com/read/sywnhndxsrpf}{Self link}
+
+    \begin{problem}{1 (a)}
+    Let $S_1, S_2, ... $ be an infinite sequence of sets. Prove that
+    
+    $\bigcap\limits_{k=1}^{\infty}{\bigcup\limits_{n=k}^{\infty}{S_{n}}}$ $=$ \{$x|x\in S_{n}$, for infinitely many n\}.
+    \end{problem}
+    
+    \begin{solution}
+    
+    Proof.
+    
+    Let $\bigcap\limits_{k=1}^{\infty}{\bigcup\limits_{n=k}^{\infty}{S_{n}}}$ $= A$ and \{$x|x\in S_{n}$, for infinitely many n\} $= B$.
+    \newline
+    
+    1. $A \subseteq B$
+    
+    Suppose $x\in A$.
+    
+    $\rightarrow{}$ $x\in\bigcup\limits_{n=k}^{\infty}{S_n}$, for any positive integer $k$.
+    
+    $\rightarrow{}$
+    We can find infinitely integer $n^*$ s.t. $n^* \geq k$ and $x\in S_{n^*}$ for any positive integer k.
+    
+    $\rightarrow{}$
+    $x\in S_n$, for infinitely many $n$.
+    
+    $\rightarrow{}$
+    $x\in B$.
+    
+    $\rightarrow$
+    $A\subseteq B$.
+    \newline
+    
+    2. $B \subseteq A$
+    
+    Suppose $y\in B$.
+    
+    $\rightarrow$ 
+    Give any positive integer $k$, there exists some positive integer $n^*$ s.t. $n^* \geq k$ and $y\in S_{n^*}$.
+    
+    $\rightarrow$
+    $y\in\bigcup\limits_{n=k}^{\infty}{S_n}$, for all positive integer $k$.
+    
+    $\rightarrow$
+    $y\in A$.
+    
+    $\rightarrow$
+    $B\subseteq A$.
+    \newline
+    
+    Since 1. and 2. we have $A = B$.
+    \newline
+    
+    Proven $\bigcap\limits_{k=1}^{\infty}{\bigcup\limits_{n=k}^{\infty}{S_{n}}}$ $=$ \{$x|x\in S_{n}$, for infinitely many n\}.
+    \end{solution}
+    
+    \begin{problem}{1 (b)}
+    Let $\Omega$ be the universal set and $B, C$ be two sets that satisfy $B \subseteq \Omega$ and $C \subseteq \Omega$. Let $\{F_k\}_{k=1}^{\infty}$ denote the Fibonacci sequence, i.e., $F_1 = F_2 = 1$ and $F_{k+1} = F_k + F_{k-1}$, for $k\geq 2$. Define a countably infinite sequence of sets $A_1, A_2, A_3, ...$ as
+    
+    $A_n = \{ B - C$, if $n$ is in the Fibonacci sequence $\{F_k\}$, $C - B$, otherwise.$\}$
+    
+    
+    What are $\bigcap\limits_{n=1}^{\infty}{A_n}, \bigcup\limits_{n=1}^{\infty}{A_n}, \bigcup\limits_{k=1}^{\infty}{\bigcap\limits_{n=k}^{\infty}{A_n}}, and \bigcap\limits_{k=1}^{\infty}{\bigcup\limits_{n=k}^{\infty}{A_n}}$ ? Please clearly explain your answer.
+    \end{problem}
+    
+    \begin{solution}
+    
+    We know $A_n$ can only be $B-C$ or $C-B$ by definition.
+    Since 1 is in $\{F_k\}$ and 4 is not in $\{F_k\}$, then we have $A_1=B-C, A_4=C-B$.
+    
+    $\rightarrow$
+    
+    1. $\bigcap\limits_{n=1}^{\infty}{A_n} = (B-C) \cap (C-B) = \phi$.
+    
+    2. $\bigcup\limits_{n=1}^{\infty}{A_n} = (B-C) \cup (C-B)$.
+    \newline
+    
+    We know $F_k \rightarrow\infty$ as $k\rightarrow\infty$.
+    
+    $\rightarrow$
+    Give any positive integer $k$, there exits an integer $n^* > k$ and in the Fibonacci sequence. And $n^* + 1$ will be not in the Fibonacci sequence.
+    
+    $\rightarrow$
+    We have $A_{n^*} = B - C$ and $A_{n^*+1} = C - B$, and $n^* > k$ for any positive integer k.
+    
+    $\rightarrow$
+    
+    3. $\bigcup\limits_{k=1}^{\infty}{\bigcap\limits_{n=k}^{\infty}{A_n}} = \bigcup\limits_{k=1}^{\infty}{(\phi)} = \phi$.
+    
+    4. $\bigcap\limits_{k=1}^{\infty}{\bigcup\limits_{n=k}^{\infty}{A_n}} = \bigcap\limits_{k=1}^{\infty}{((B-C) \cup (C-B))} = (B-C) \cup (C-B)$.
+    \end{solution}
+    
+    \begin{problem}{1 (c)}
+    Show that there are uncountably infinite many real numbers in the interval $(0, 1)$.
+    \end{problem}
+    
+    \begin{solution}
+    
+    Assume that there are countably infinite real numbers in $(0, 1)$.
+    
+    Define $x_1, x_2, x_3, ..., x_i, ...$ are the infinite real numbers in $(0, 1)$, and each real number $x_i$ between 0 and 1 in decimal expansion.
+    
+    And give a sequence as the following:
+    
+    $x_1 = 0.127368\dots$
+    
+    $x_2 = 0.212562\dots$
+    
+    $x_2 = 0.137611\dots$
+    
+    $\dots$
+    
+    Then we let a number $y$ whose ith decimal place is $x$ = \{ 1 if $x_i$'s ith decimal place $\neq 1$, 2 if $x_i$ 's ith decimal place $= 1$.
+    
+    However for this case we will get $y=0.221...$ which is $\neq x_i$, for any i.
+    
+    That is contradiction.
+    \newline
+    
+    Proven there are uncountably infinite many real numbers in the interval $(0, 1)$.
+    \end{solution}
+    
+    \begin{problem}{2 (a)}
+    Let $A_1, A_2, ..., A_N$ be a sequence of events of an experiment. Prove that the following inequality holds for any $N \in \mathbb{N}$:
+    
+    $P(\bigcup\limits_{n=1}^{N}{A_n})\leq \sum\limits_{n=1}^{N}{P(A_n)}$.
+    \end{problem}
+    
+    \begin{solution}
+    
+    When $N = 1$, $P(\bigcup\limits_{n=1}^{1}{A_n}) = P(A_1) = \sum\limits_{n=1}^{1}{P(A_n)}$.
+    
+    $\rightarrow$
+    $P(\bigcup\limits_{n=1}^{N}{A_n})\leq \sum\limits_{n=1}^{N}{P(A_n)}$ is true when $N = 1$.
+    
+    Suppose $P(\bigcup\limits_{n=1}^{N}{A_n})\leq \sum\limits_{n=1}^{N}{P(A_n)}$ is true when $N = k$.
+    
+    When $N = k+1$, 
+    
+    $P(\bigcup\limits_{n=1}^{k+1}{A_n}) = P(\bigcup\limits_{n=1}^{k}{A_n} \cup A_{k+1})$
+    
+    $\hspace*{48} = P(\bigcup\limits_{n=1}^{k}{A_n}) + P(A_{k+1}) - P((\bigcup\limits_{n=1}^{k}{A_n}) \cap A_{k+1})$
+    
+    $\hspace*{48} \leq P(\bigcup\limits_{n=1}^{k}{A_n}) + P(A_{k+1})$
+    
+    $\hspace*{48} \leq \sum\limits_{n=1}^{k}P({A_n}) + P(A_{k+1})$
+    
+    $\hspace*{48} = \sum\limits_{n=1}^{k+1}P({A_n})$
+    
+    $\rightarrow 
+    P(\bigcup\limits_{n=1}^{k+1}{A_n}) \leq \sum\limits_{n=1}^{k+1}P({A_n})$ if $P(\bigcup\limits_{n=1}^{k}{A_n})\leq \sum\limits_{n=1}^{k}{P(A_n)}$ is true, for any integer $k > 1$.
+    \newline
+    
+    Proven $P(\bigcup\limits_{n=1}^{N}{A_n})\leq \sum\limits_{n=1}^{N}{P(A_n)}$ for any $N \in \mathbb{N}$ by induction.
+    
+    \end{solution}
+    
+    \begin{problem}{2 (b)}
+    Consider an experiment with a sample space $\Omega = \{1, 2, 3, 4, 5\}$. Suppose we know $P(\{1, 5\}) = 0.5$, $P(\{1, 2, 4\}) = 0.4$, and $P(\{3\}) = 0.3$. Please write down all possible valid probability assignments. Moreover, among all the possible valid probability assignments, what is the minimum possible value of P(\{2, 3, 5\})? Please explain your answer.
+    \end{problem}
+    
+    \begin{solution}
+    
+    By axioms 1, 3, we have following:
+    
+    P(\{5\}) = P($\Omega$) - P(\{1, 2, 3, 4\}) = 1 - ( P(\{1, 2, 4\}) + P(\{3\}) ) = 1 - (0.4 + 0.3) = 0.5 
+    
+    P(\{1\}) = P(\{1, 5\}) - P(\{5\}) = 0.5 - 0.3 = 0.2 
+    
+    P(\{2\}) + P(\{4\}) = P(\{1, 2, 4\}) - P(\{1\}) = 0.4 - 0.2 = 0.2 
+    
+    Then the all possible valid probability assignments are the assignments which is satisfied P(\{1\}) = 0.2, P(\{3\}) ) = 0.3, P(\{5\}) = 0.3, and P(\{2\}) + P(\{4\}) = 0.2.
+    
+    The minimum possible value of P(\{2, 3, 5\}) is 0.6 if P(\{2\}) = 0 and P(\{4\}) = 0.2.
+    
+    \end{solution}
+    
+    \begin{problem}{3 (a)}
+    Let $A_1, A_2, A_3, \dots$ be a countably infinite sequence of events. Prove that if $\sum_{n=1}^{\infty}{P(A_n)} < \infty$, then $P(\bigcap\limits_{k=1}^{\infty}{\bigcup\limits_{n=k}^{\infty}{A_n}})  = 0$.
+    \end{problem}
+    
+    \begin{solution}
+    
+    By Boole's inequality, we know $P(\bigcup\limits_{n=k}^{\infty}{A_n})\leq \sum\limits_{n=k}^{\infty}{P(A_n)}$.
+    
+    The assumption, $\sum_{n=1}^{\infty}{P(A_n)} < \infty$, means the series $\sum_{n=1}^{\infty}{P(A_n)}$ converges, 
+    
+    $\lim\limits_{k\rightarrow\infty}\sum\limits_{n=k}^{\infty}{P(A_n)} = 0$.
+    
+    $\rightarrow$
+    $\lim\limits_{k\rightarrow\infty}P(\bigcup\limits_{n=k}^{\infty}{A_n}) = 0$
+    
+    $\rightarrow$
+    $P(\bigcap\limits_{k=1}^{\infty}{\bigcup\limits_{n=k}^{\infty}{A_n}}) = 0$
+    \newline
+    
+    Proven if $\sum_{n=1}^{\infty}{P(A_n)} < \infty$, then $P(\bigcap\limits_{k=1}^{\infty}{\bigcup\limits_{n=k}^{\infty}{A_n}})  = 0$.
+    \end{solution}
+    
+    \begin{problem}{3 (b)}
+    Consider a countably infinite sequence of coin tosses. The probability of having a head at the $k-$th toss is $p_k$, with $p_k = 100 \cdot k^{-N}$. We use $I$ to denote the event of observing an infinite number of heads. Show that $P(I) = 0$ if $N > 1$. Please clearly explain your answer.
+    \end{problem}
+    
+    \begin{solution}
+    
+    $\lim\limits_{k\rightarrow\infty}{p_k} = \lim\limits_{k\rightarrow\infty}{100 \cdot k^{-N}} = 0$, when $N > 1$.
+    
+    $\rightarrow$
+    $\sum_{n=1}^{\infty}{p_k} $ converges.
+    
+    $\rightarrow$
+    $\sum_{n=1}^{\infty}{p_k} < \infty \dots (1)$
+    
+    By the definition, $I = \limsup\limits_{k\rightarrow \infty}{p_k}$.
+    
+    By Borel-Cantelli Lemma (result in (a)), $\limsup\limits_{k\rightarrow \infty}{p_k}  = 0$, when $N > 1$ since (1).
+    
+    Proven $P(I) = 0$ if $N > 1$.
+    \end{solution}
+    
+    \begin{problem}{4}
+    Suppose we are given a special pair of moon blocks with unknown characteristics. Let $\theta_Y, \theta_L, \theta_N$ denote the unknown probabilities of getting a "Yes" (Y), "Laughing" (L), and "No" (N) at each toss, respectively. Moreover, suppose that the tuple of the unknown parameters ($\theta_Y, \theta_L, \theta_N$) can only be one of the following three possibilities: ($\theta_Y, \theta_L, \theta_N) \in \{(0.1, 0.3, 0.6), (0.3, 0.6, 0.1), (0.6, 0.3, 0.1)\}$. In order to infer the values ($\theta_Y, \theta_L, \theta_N$), we experiment with the moon blocks and consider Bayesian inference as follows: Define events $A_1 = \{\theta_Y = 0.1, \theta_L = 0.3, \theta_N = 0.6\}, A_2 = \{\theta_Y = 0.3, \theta_L = 0.6, \theta_N = 0.1\}, A_3 = \{\theta_Y = 0.6, \theta_L = 0.3, \theta_N = 0.1\}$. Since initially we have no further information about ($\theta_Y, \theta_L, \theta_N$), we simply consider the prior probability assignment to be $P(A_1) = P(A_2) = P(A_3) = 1/3$.
+    \end{problem}
+    
+    \begin{question}{(a)}
+    Suppose we toss the pair of moon blocks once and observe a "Y" (for ease of notation, we define the event B = \{the first toss is a Y\}). What is the posterior probability $P(A_1|B)$? How about $P(A_2|B)$ and $P(A_3|B)$?
+    \end{question}
+    
+    \begin{solution}
+    
+    $P(A_1|B)=\frac{P(A_1)P(B|A_1)}{P(A_1)P(B|A_1)+P(A_2)P(B|A_2)+P(A_3)P(B|A_3)} = \frac{1/3 \times 0.1}{1/3 \times 0.1 + 1/3 \times 0.3 + 1/3 \times 0.6} = \frac{0.1}{0.1 + 0.3 + 0.6} = 0.1$
+    
+    $P(A_2|B)=\frac{P(A_2)P(B|A_2)}{P(A_1)P(B|A_1)+P(A_2)P(B|A_2)+P(A_3)P(B|A_3)} = \frac{1/3 \times 0.3}{1/3 \times 0.1 + 1/3 \times 0.3 + 1/3 \times 0.6} = \frac{0.3}{0.1 + 0.3 + 0.6} = 0.3$
+    
+    $P(A_3|B)=\frac{P(A_3)P(B|A_3)}{P(A_1)P(B|A_1)+P(A_2)P(B|A_2)+P(A_3)P(B|A_3)} = \frac{1/3 \times 0.6}{1/3 \times 0.1 + 1/3 \times 0.3 + 1/3 \times 0.6} = \frac{0.6}{0.1 + 0.3 + 0.6} = 0.6$
+    \end{solution}
+    
+    \begin{question}{(b)}
+    Suppose we toss the pair of moon blocks for 12 times and observe $YLYNLYLLYLLL$ (for ease of notation, we define the event C = $\{YLYNLYLLYLLL\})$. Moreover, all the tosses are assumed to be independent. What is the posterior probability $P(A_1|C)$, $P(A_2|C)$, and $P(A_3|C)$? Given the experimental results, what is the most probable value for $\theta$?
+    \end{question}
+    
+    \begin{solution}
+    
+    $P(C) = \theta_Y\theta_L\theta_Y\theta_N\theta_L\theta_Y\theta_L\theta_L\theta_Y\theta_L\theta_L\theta_L$
+    \newline
+    
+    $P(C|A_1) =\frac{P(C)\cap P(A_1)}{P(A_1)} = \frac{(0.1)^4(0.3)^7(0.6)P(A_1)}{P(A_1)}$
+    
+    $P(C|A_2) = \frac{P(C)\cap P(A_2)}{P(A_2)} =\frac{(0.3)^4(0.6)^7(0.1)P(A_2)}{P(A_2)}$
+    
+    $P(C|A_3) = \frac{P(C)\cap P(A_3)}{P(A_3)} =\frac{(0.6)^4(0.3)^7(0.1)P(A_3)}{P(A_3)}$
+    \newline
+    
+    $P(A_1|C) = \frac{P(A_1)P(C|A_1)}{P(A_1)P(C|A_1) + P(A_2)P(C|A_2) + P(A_3)P(C|A_3)}$
+    
+    $\hspace{41} = \frac{(0.1)^4(0.3)^7(0.6)P(A_1)}{(0.1)^4(0.3)^7(0.6)P(A_1) + (0.3)^4(0.6)^7(0.1)P(A_2) + (0.6)^4(0.3)^7(0.1)P(A_3)}$ 
+    
+    $\hspace{41} = \frac{6}{6 + 3^4 \times 2^7 + 6^4} = \frac{1}{1 + 3^3 \times 2^6 + 6^3}=\frac{6}{6 + 1728 + 216} = \frac{1}{1945} \approx 0.00051\dots$
+    
+    $P(A_2|C) = \frac{P(A_2)P(C|A_2)}{P(A_1)P(C|A_1) + P(A_2)P(C|A_2) + P(A_3)P(C|A_3)}$
+    
+    $\hspace{41} = \frac{(0.3)^4(0.6)^7(0.1)P(A_2)}{(0.1)^4(0.3)^7(0.6)P(A_1) + (0.3)^4(0.6)^7(0.1)P(A_2) + (0.6)^4(0.3)^7(0.1)P(A_3)}$
+    
+    $\hspace{41} = \frac{3^4 \times 2^7}{6 + 3^4 \times 2^7 + 6^4} = \frac{3^3 \times 2^6}{1 + 3^3 \times 2^6 + 6^3}= \frac{1728}{1 + 1728 + 216} = \frac{1728}{1945} \approx 0.88843\dots$
+    
+    $P(A_3|C) = \frac{P(A_3)P(C|A_3)}{P(A_1)P(C|A_1) + P(A_2)P(C|A_2) + P(A_3)P(C|A_3)}$
+    
+    $\hspace{41} = \frac{(0.6)^4(0.3)^7(0.1)P(A_3)}{(0.1)^4(0.3)^7(0.6)P(A_1) + (0.3)^4(0.6)^7(0.1)P(A_2) + (0.6)^4(0.3)^7(0.1)P(A_3)}$
+    
+    $\hspace{41} = \frac{6^4}{6 + 3^4 \times 2^7 + 6^4} = \frac{6^3}{1 + 3^3 \times 2^6 + 6^3} = \frac{216}{1 + 1728 + 216} = \frac{216}{1945} \approx 0.11105\dots$
+    \newline
+    
+    The most probable value for $\theta$ is $A_2 = \{\theta_Y = 0.3, \theta_L = 0.6, \theta_N = 0.1\}$.
+    \end{solution}
+    
+    \begin{question}{(c)}
+    Given the same setting as (b), suppose we instead choose to use a different prior probability assignment $P(A_1) = 3/5$, $P(A_2) = 1/5$, $P(A_3) = 1/5$. What is the posterior probabilities $P(A_1|C)$, $P(A_2|C)$, and $P(A_3|C)$? Given the experimental results, what is the most probable value for $\theta$?
+    \end{question}
+    
+    \begin{solution}
+    
+    $P(C) = \theta_Y\theta_L\theta_Y\theta_N\theta_L\theta_Y\theta_L\theta_L\theta_Y\theta_L\theta_L\theta_L$
+    \newline
+    
+    $P(C|A_1) =\frac{P(C)\cap P(A_1)}{P(A_1)} = \frac{(0.1)^4(0.3)^7(0.6)P(A_1)}{P(A_1)}$
+    
+    $P(C|A_2) = \frac{P(C)\cap P(A_2)}{P(A_2)} =\frac{(0.3)^4(0.6)^7(0.1)P(A_2)}{P(A_2)}$
+    
+    $P(C|A_3) = \frac{P(C)\cap P(A_3)}{P(A_3)} =\frac{(0.6)^4(0.3)^7(0.1)P(A_3)}{P(A_3)}$
+    \newline
+    
+    $P(A_1|C) = \frac{P(A_1)P(C|A_1)}{P(A_1)P(C|A_1) + P(A_2)P(C|A_2) + P(A_3)P(C|A_3)}$
+    
+    $\hspace{41} = \frac{(0.1)^4(0.3)^7(0.6)P(A_1)}{(0.1)^4(0.3)^7(0.6)P(A_1) + (0.3)^4(0.6)^7(0.1)P(A_2) + (0.6)^4(0.3)^7(0.1)P(A_3)}$ 
+    
+    $\hspace{41} = \frac{6 \times 3}{6 \times 3 + 3^4 \times 2^7 + 6^4} = \frac{1}{1+ 3^2 \times 2^6 + 2^3 \times 3^2} =\frac{1}{1 + 576 + 72} = \frac{1}{649} \approx 0.00154\dots$
+   
+    
+    $P(A_2|C) = \frac{P(A_2)P(C|A_2)}{P(A_1)P(C|A_1) + P(A_2)P(C|A_2) + P(A_3)P(C|A_3)}$
+    
+    $\hspace{41} = \frac{(0.3)^4(0.6)^7(0.1)P(A_2)}{(0.1)^4(0.3)^7(0.6)P(A_1) + (0.3)^4(0.6)^7(0.1)P(A_2) + (0.6)^4(0.3)^7(0.1)P(A_3)}$
+    
+    $\hspace{41} = \frac{3^4 \times 2^7}{6 \times 3 + 3^4 \times 2^7 + 6^4} = \frac{3^2 \times 2^6}{1+ 3^2 \times 2^6 + 2^3 \times 3^2} =\frac{576}{1 + 576 + 72} = \frac{576}{649} \approx 0.88751\dots$
+    
+    
+    $P(A_3|C) = \frac{P(A_3)P(C|A_3)}{P(A_1)P(C|A_1) + P(A_2)P(C|A_2) + P(A_3)P(C|A_3)}$
+    
+    $\hspace{41} = \frac{(0.6)^4(0.3)^7(0.1)P(A_3)}{(0.1)^4(0.3)^7(0.6)P(A_1) + (0.3)^4(0.6)^7(0.1)P(A_2) + (0.6)^4(0.3)^7(0.1)P(A_3)}$
+    
+    
+    $\hspace{41} = \frac{6^4}{6 \times 3 + 3^4 \times 2^7 + 6^4} = \frac{2^3 \times 3^2}{1+ 3^2 \times 2^6 + 2^3 \times 3^2}=\frac{72}{1 + 576 + 72} = \frac{72}{649} \approx 0.11093\dots$
+    \newline
+    
+    The most probable value for $\theta$ is $A_2 = \{\theta_Y = 0.3, \theta_L = 0.6, \theta_N = 0.1\}$.
+    \end{solution}
+    
+\end{CJK*}
+\end{document}
