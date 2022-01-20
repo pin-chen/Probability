@@ -1,0 +1,185 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX
+\documentclass{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{CJKutf8}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+
+\pagestyle{fancy}
+
+
+\newenvironment{problem}[2][Problem]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+\newenvironment{question}[2][Question]
+    { \begin{mdframed}[backgroundcolor=gray!5] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}{\textbf{Solution}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Date: 2021/12/26}
+\chead{\textbf{HW4}}
+\rhead{1179 Probability} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+Name: 陳品劭 \qquad ID: 109550206 \qquad
+\href{https://www.overleaf.com/read/cjpxxwwvnfjj}{Self link} 
+    \begin{problem}{1 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    $E[e^{-tX_i}]=\int_{0}^{\infty}e^{-tX_i}f_{X_i}(x)dx\le\int_{0}^{\infty}e^{-tX_i}(1)dx=\int_{0}^{\infty}e^{-tX_i}dx=0- \frac{-1}{t}=1/t$
+    \newline
+    
+    Proven  $E[e^{-tX_i}]\le1/t$, for every $i$, for all $t>0$.
+    
+    \end{solution}
+    
+    \begin{problem}{1 (b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    $P(\sum\limits_{i=1}^{N}\le \epsilon N) = P(e^{t\sum_{i=1}^{N}X_i}\le e^{t\epsilon N})=P(e^{-t\sum_{i=1}^{N}X_i}\ge e^{-t\epsilon N})$
+    
+    By Markov's Inequality,
+    
+    $P(e^{-t\sum_{i=1}^{N}X_i}\ge e^{-t\epsilon N})\le e^{t\epsilon N}E[e^{-t\sum_{i=1}^{N}X_i}]$
+    
+    $\xrightarrow{}P(\sum\limits_{i=1}^{N}\le \epsilon N)\le e^{t\epsilon N}E[e^{-t\sum_{i=1}^{N}X_i}] = e^{t\epsilon N}\prod\limits_{i=1}^{N}E[e^{-tX_i}]\le e^{t\epsilon N}(1/t)^{N} $ (by 1(a))
+    
+    $\frac{d}{dt}(e^{t\epsilon }/t)^{N}=\frac{t\epsilon e^{t\epsilon}-e^{t\epsilon}}{t^2}$
+    
+    $\frac{t\epsilon e^{t\epsilon}-e^{t\epsilon}}{t^2}=0$
+    
+    $\xrightarrow{}t\epsilon-1=0$
+    
+    $\xrightarrow{}t=1/\epsilon$
+    
+    $\xrightarrow{}P(\sum\limits_{i=1}^{N}\le \epsilon N)\le (e^{t\epsilon }/t)^{N} \le (e\epsilon)^{N}$
+    
+    Proven $P(\sum\limits_{i=1}^{N}\le \epsilon N) \le (e\epsilon)^{N}$, for any $\epsilon>0$.
+    
+    \end{solution}
+    
+    \begin{problem}{2}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    Define $A=\{\omega:X_n(\omega)$ does not converges to $a\}$ and  $B=\{\omega:Y_n(\omega)$ does not converges to $b\}$.
+    
+    By definition of almost sure convergence, we conclude $P(A)=P(B)=0$ and $P(A^c)=P(B^c)=1$ 
+    
+    $P(A^c\cap B^c)=1-P(A\cup B)\ge1-P(A)-P(B)=1$
+    \newline
+    
+    Define $Z_n=X_n\cdot Y_n$.
+    
+    Define $C=\{\omega:Z_n(\omega)$ converges to $a\cdot b\}$.
+    
+    Suppose $s\in A^c\cap B^c$.
+    
+    $\because$
+    
+    $\lim\limits_{n\xrightarrow{}\infty}X_n(s)=a$
+    
+    $\lim\limits_{n\xrightarrow{}\infty}Y_n(s)=b$
+    
+    $\therefore$
+    
+    $\lim\limits_{n\xrightarrow{}\infty}Z_n(s)=\lim\limits_{n\xrightarrow{}\infty}X_n(s)Y_n(s)=\lim\limits_{n\xrightarrow{}\infty}X_n(s) \cdot \lim\limits_{n\xrightarrow{}\infty}Y_n(s) = a\cdot b$
+    \newline
+    
+    Thus $s\in C$, $A^c\cap B^c \subset C$.
+    \newline
+    
+    Then $P(C)\ge P(A^c\cap B^c) = 1$, which implies $P(C)=P(\{\omega:Z_n(\omega)$ converges to $a\cdot b\})=1$.
+    
+    That means $Z_n=X_n\cdot Y_n$ converges to $a\cdot b$, almost surely.
+    \newline
+    
+    Proven that $X_n\cdot Y_n$ converges to $a\cdot b$, almost surely.
+    
+    \end{solution}
+    
+    \begin{problem}{3(a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    Define $Y=|X_n-c|$.
+    
+    $P(|X_n-c|\ge \epsilon)=P(Y\ge \epsilon)=P(Y^2\ge\epsilon^2)$
+    \newline
+    
+    By Markov's Inequality,
+     
+    $P(Y^2\ge \epsilon^2)\le \frac{E[Y^2]}{\epsilon^2}$
+    
+    $\xrightarrow{}\lim\limits_{n\xrightarrow{}\infty}P(|X_n-c|\ge \epsilon)=\lim\limits_{n\xrightarrow{}\infty}P(Y^2\ge \epsilon^2)\le \lim\limits_{n\xrightarrow{}\infty} \frac{E[Y^2]}{\epsilon^2} = \lim\limits_{n\xrightarrow{}\infty} \frac{E[(|X_n-c|)^2]}{\epsilon^2}=0/\epsilon^2=0$
+    \newline
+    
+    Proven that convergence in the mean square implies convergence in probability.
+    
+    \end{solution}
+    
+    \begin{problem}{3(b)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    Define $P(X_n=t) = \{ 1-1/n$, if $t=c$, $1/n$, if $t=n$, $0$  else.
+    
+    $\lim\limits_{n\xrightarrow{}\infty}P(|X_n-c|< \epsilon)=\lim\limits_{n\xrightarrow{}\infty}P(X_n=c)=\lim\limits_{n\xrightarrow{}\infty}1-1/n=1$
+    
+    $\xrightarrow{}\lim\limits_{n\xrightarrow{}\infty}P(|X_n-c|\ge \epsilon)=\lim\limits_{n\xrightarrow{}\infty}1-P(|X_n-c|< \epsilon)=1-1=0$
+    \newline
+    
+    Then we get it is convergence in probability.
+    \newline
+    
+    $E[(X_n-c)^2]=E[X_n^2-2cX_n+c^2]=E[X_n^2]-2cE[X_n]+c^2$
+    
+    $\lim\limits_{n\xrightarrow{}\infty}E[X_n^2]=\lim\limits_{n\xrightarrow{}\infty}c^2\cdot(1-1/n)+n^2\cdot 1/n = c^2+\infty=\infty$
+    
+    $\lim\limits_{n\xrightarrow{}\infty}E[X_n]=\lim\limits_{n\xrightarrow{}\infty}c\cdot(1-1/n)+n\cdot 1/n = c+1$
+    
+    $\lim\limits_{n\xrightarrow{}\infty}E[(X_n-c)^2]=\lim\limits_{n\xrightarrow{}\infty}E[X_n^2]-2cE[X_n]+c^2=\infty-2c(c+1)+c^2=\infty$
+    \newline
+    
+    Then we get it is not convergence in the mean square.
+    \newline
+    
+    Proven that convergence in probability does not imply convergence in the mean square.
+    
+    \end{solution}
+    
+\end{CJK*}
+\end{document}

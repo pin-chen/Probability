@@ -1,0 +1,99 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX
+\documentclass{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{CJKutf8}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+
+\pagestyle{fancy}
+
+
+\newenvironment{problem}[2][Problem]
+    { \begin{mdframed}[backgroundcolor=gray!20] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+\newenvironment{question}[2][Question]
+    { \begin{mdframed}[backgroundcolor=gray!5] \textbf{#1 #2} \\}
+    {  \end{mdframed}}
+
+% Define solution environment
+\newenvironment{solution}{\textbf{Solution}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Date: 2022/1/6}
+\chead{\textbf{HW4 PartII}}
+\rhead{1179 Probability} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+Name: 陳品劭 \qquad ID: 109550206 \qquad
+\href{https://www.overleaf.com/read/fcgtndbgsfmj}{Self link} 
+    \begin{problem}{1 (a)}
+    
+    \end{problem}
+    
+    \begin{solution}
+    
+    $f_{Z_1, Z_2}(z_1, z_2)=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp(-\frac{\frac{(z_1-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(z_1-\mu_1)(z_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(z_2-\mu_2)^2}{\sigma_2^2}}{2(1-\rho^2)})$
+    
+    $f_{Z_1(z_1)}=\int_{-\infty}^{\infty}f_{Z_1, Z_2}(z_1, z_2)dz_2=\frac{1}{\sqrt{2\pi}\sigma_1}\exp(-\frac{(z_1-\mu_1)^2}{2\sigma_1^2})$
+    
+    $f_{Z_2|Z_1}(z_2|z_1)=\frac{f_{Z_1, Z_2}(z_1, z_2)}{f_{Z_1(z_1)}}$
+    
+    $=\frac{\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp(-\frac{\frac{(z_1-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(z_1-\mu_1)(z_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(z_2-\mu_2)^2}{\sigma_2^2}}{2(1-\rho^2)})}{\frac{1}{\sqrt{2\pi}\sigma_1}\exp(-\frac{(z_1-\mu_1)^2}{2\sigma_1^2})}$
+    
+    
+    $=\frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}} \cdot \sqrt{2\pi}\sigma_1 \cdot \exp(-\frac{\frac{(z_1-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(z_1-\mu_1)(z_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(z_2-\mu_2)^2}{\sigma_2^2}}{2(1-\rho^2)}) \exp(\frac{(z_1-\mu_1)^2}{2\sigma_1^2})$
+    
+    $=\frac{1}{\sqrt{2\pi}\sigma_2\sqrt{1-\rho^2}} \cdot \exp(-\frac{\frac{(z_1-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(z_1-\mu_1)(z_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(z_2-\mu_2)^2}{\sigma_2^2}}{2(1-\rho^2)} + \frac{(z_1-\mu_1)^2}{2\sigma_1^2}) $
+    
+    $=\frac{1}{\sqrt{2\pi(\sigma_2^2(1-\rho^2))}} \cdot \exp(-\frac{-2\rho\frac{(z_1-\mu_1)(z_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(z_2-\mu_2)^2}{\sigma_2^2}}{2(1-\rho^2)} - \frac{\frac{(z_1-\mu_1)^2}{\sigma_1^2}}{2(1-\rho^2)} + \frac{(z_1-\mu_1)^2}{2\sigma_1^2})$
+    
+    $=\frac{1}{\sqrt{2\pi(\sigma_2^2(1-\rho^2))}} \cdot \exp(-\frac{-2\rho\frac{(z_1-\mu_1)(z_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(z_2-\mu_2)^2}{\sigma_2^2}}{2(1-\rho^2)} - \frac{(z_1-\mu_1)^2}{2\sigma_1^2(1-\rho^2)} + \frac{(z_1-\mu_1)^2(1-\rho^2)}{2\sigma_1^2(1-\rho^2)}) $
+    
+    $=\frac{1}{\sqrt{2\pi(\sigma_2^2(1-\rho^2))}} \cdot \exp(-\frac{-2\rho\frac{(z_1-\mu_1)(z_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(z_2-\mu_2)^2}{\sigma_2^2}}{2(1-\rho^2)} + \frac{((1-\rho^2)-1)(z_1-\mu_1)^2}{2\sigma_1^2(1-\rho^2)}) $
+
+    $=\frac{1}{\sqrt{2\pi(\sigma_2^2(1-\rho^2))}} \cdot \exp(-\frac{-2\rho\frac{(z_1-\mu_1)(z_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(z_2-\mu_2)^2}{\sigma_2^2}}{2(1-\rho^2)} - \frac{\rho^2(z_1-\mu_1)^2}{2\sigma_1^2(1-\rho^2)} )$
+    
+    $=\frac{1}{\sqrt{2\pi(\sigma_2^2(1-\rho^2))}} \cdot \exp(-\frac{\frac{\rho^2(z_1-\mu_1)^2}{\sigma_1^2}-2\rho\frac{(z_1-\mu_1)(z_2-\mu_2)}{\sigma_1\sigma_2}+\frac{(z_2-\mu_2)^2}{\sigma_2^2}}{2(1-\rho^2)} )$
+    
+    Define $X=\frac{(z_1-\mu_1)}{\sigma_1}$ and $Y=\frac{(z_2-\mu_2)}{\sigma_2}$
+    
+    Then,
+    
+    $f_{Z_2|Z_1}(z_2|z_1)=\frac{f_{Z_1, Z_2}(z_1, z_2)}{f_{Z_1(z_1)}}$
+    
+    $=\frac{1}{\sqrt{2\pi(\sigma_2^2(1-\rho^2))}} \cdot \exp(-\frac{(X\rho)^2-2XY\rho+Y^2}{2(1-\rho^2)})$
+    
+    $=\frac{1}{\sqrt{2\pi(\sigma_2^2(1-\rho^2))}} \cdot \exp(-\frac{(X\rho-Y)^2}{2(1-\rho^2)})$
+    
+    $=\frac{1}{\sqrt{2\pi(\sigma_2^2(1-\rho^2))}} \cdot \exp(-\frac{(\frac{(z_1-\mu_1)}{\sigma_1}\rho-\frac{(z_2-\mu_2)}{\sigma_2})^2}{2(1-\rho^2)})$
+    
+    $=\frac{1}{\sqrt{2\pi(\sigma_2^2(1-\rho^2))}} \cdot \exp(-\frac{(\frac{(\rho\sigma_2(z_1-\mu_1)}{\sigma_1}-(z_2-\mu_2))^2}{2\sigma_2^2(1-\rho^2)})$
+    
+    $=\frac{1}{\sqrt{2\pi(\sigma_2^2(1-\rho^2))}} \cdot \exp(-\frac{(z_2-(\mu_2+\frac{\rho\sigma_2(z_1-\mu_1)}{\sigma_1}))^2}{2\sigma_2^2(1-\rho^2)})$
+    \newline
+    
+    Proven that conditioned on that $Z_1 = z_1$, the conditional distribution of $Z_2$ is normal with mean $\mu_2+\frac{\rho\sigma_2(z_1-u_1)}{\sigma_1}$ and variance $(1-\rho^2)\sigma_2^2$.
+    
+    \end{solution}
+    
+    
+\end{CJK*}
+\end{document}
